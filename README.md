@@ -12,11 +12,11 @@ This is a **hosted remote server**. There is nothing to install or run: point yo
 |---|---|
 | Endpoint | `https://justbacked.com/api/mcp` |
 | Transport | Streamable HTTP (stateless, JSON responses) |
-| Auth | `Authorization: Bearer jb_live_...` (JustBacked member API key) |
+| Auth | OAuth 2.1 (sign in with your JustBacked account) or `Authorization: Bearer jb_live_...` (member API key) |
 | Registry name | `com.justbacked/jobs` ([official MCP registry](https://registry.modelcontextprotocol.io)) |
 | Protocol versions | 2025-06-18, 2025-03-26, 2024-11-05 |
 
-`initialize` and `tools/list` work without a key. `tools/call` needs a key from a JustBacked membership: create one at [justbacked.com/account](https://justbacked.com/account#api).
+`initialize` and `tools/list` work without signing in. `tools/call` needs a JustBacked membership: sign in through OAuth when your client asks, or create an API key at [justbacked.com/account](https://justbacked.com/account#api).
 
 ## Connect
 
@@ -27,7 +27,9 @@ claude mcp add --transport http justbacked https://justbacked.com/api/mcp \
   --header "Authorization: Bearer jb_live_YOUR_KEY"
 ```
 
-**Claude.ai, ChatGPT and other clients that only take a URL**: put the key in the path.
+**Claude, ChatGPT and other clients with OAuth**: add `https://justbacked.com/api/mcp` as a custom connector and sign in to JustBacked when asked. Nothing to copy.
+
+**Clients that only take a URL and don't support OAuth**: put an API key in the path.
 
 ```
 https://justbacked.com/api/mcp/jb_live_YOUR_KEY
