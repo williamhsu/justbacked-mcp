@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.justbacked/jobs",
+  "title": "JustBacked Startup Jobs",
+  "description": "Search and track open roles at venture-backed startups that raised in the last six months.",
+  "websiteUrl": "https://justbacked.com/agents",
+  "version": "1.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://justbacked.com/api/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer token: your JustBacked member API key (jb_live_...), from justbacked.com/account#api",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
